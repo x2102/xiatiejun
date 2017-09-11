@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="tiaowang Blog">
 <meta property="og:description" content="block循环引用的解决办法">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2017-09-11T06:28:04.000Z">
+<meta property="og:updated_time" content="2017-09-11T07:14:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="block的循环引用">
 <meta name="twitter:description" content="block循环引用的解决办法">
@@ -220,11 +220,11 @@
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
             <!-- excerpt --></p>
-<h4 id="block为什么会存在循环引用"><a href="#block为什么会存在循环引用" class="headerlink" title="block为什么会存在循环引用"></a>block为什么会存在循环引用</h4><p>用一句话概括: 两个对象相互强引用对方, 或者是多个对象相互间接形成强应用, 就会存在循环引用.导致内存始终无法释放, 内存泄露.</p>
+<h4 id="block为什么会存在循环引用"><a href="#block为什么会存在循环引用" class="headerlink" title="block为什么会存在循环引用"></a>block为什么会存在循环引用</h4><p>用一句话概括: 两个对象相互强引用对方, 或者是多个对象相互间接形成强引用, 就会存在循环引用.导致内存始终无法释放, 内存泄露.</p>
 <h4 id="weakSelf-和-strongSelf"><a href="#weakSelf-和-strongSelf" class="headerlink" title="weakSelf 和 strongSelf"></a>weakSelf 和 strongSelf</h4><p><strong><em> weakSelf </em></strong></p>
 <p>当block中存在循环引用的时候,我们需要用一个弱引用指向一个强引用 <code>__weak typeof(obj) weakSelf = self</code>; 使用weakSelf 去访问属性的时候就不会存在循环引用了</p>
 <p><strong><em> strongSelf </em></strong></p>
-<p>例如: 在一个类中有一个name属性,还有一个block 并且给赋值了, 但是在 block中定义一个weakSelf, 大于weakSelf.name 是有值的, 但是在block中实行 dispatch_after 函数之后, 再次大于weakSelf.name 却是空的, 这个个是为什么呢? 当block执行之后, 当前对象是否了, 而对象中的block当时捕获的是weakSelf, 当一个对象释放之后, 系统就会默认赋值未nil, 所有就会出现weakSelf.name是nil, 就需要定义strongSelf 重新向weakSelf<code>(__strong typeof(obj) strongSelf = weakSelf)</code>.  block执行完后这个strongSelf 会自动释放，没有不会存在循环引用问题。如果在 Block 内需要多次 访问 self，则需要使用 strongSelf.还有就是尤其是在线程之间的切换的时候就需要使用;</p>
+<p>例如: 在一个类中有一个name属性,还有一个block.  并且给name赋了值, 在block中定义一个weakSelf, 打印weakSelf.name 是有值的, 但是在block中执行 dispatch_after 函数之后, 再次打印weakSelf.name 却是nil. 当block执行完后, 当前对象释放了, 而对象中的block当时捕获的是weakSelf, 当一个对象释放之后, 系统就会默认赋值未nil, 所有就会出现weakSelf.name是nil, 这个时候就需要定义strongSelf 重新向weakSelf<code>(__strong typeof(obj) strongSelf = weakSelf)</code>. block执行完后这个strongSelf 会自动释放，没有不会存在循环引用问题。如果在block 内需要多次访问self，则需要使用strongSelf,还有就是尤其是block中线程之间的切换的调用block的时候也需要使用strongSelf;</p>
 <p><a href="http://ios.jobbole.com/88708" target="_blank" rel="external">详细讲解 </a></p>
             
         </div>
