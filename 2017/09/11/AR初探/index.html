@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="tiaowang Blog">
 <meta property="og:description" content="在iOS上实现AR的几种方法">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2017-09-11T03:18:30.000Z">
+<meta property="og:updated_time" content="2017-09-11T03:47:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AR初探">
 <meta name="twitter:description" content="在iOS上实现AR的几种方法">
@@ -220,7 +220,7 @@
         <div class="main-content-wrap">
             <!-- excerpt --></p>
 <h3 id="在iOS上实现AR的几种方法"><a href="#在iOS上实现AR的几种方法" class="headerlink" title="在iOS上实现AR的几种方法"></a>在iOS上实现AR的几种方法</h3><p>使用第3方：国内是 <a href="http://www.easyar.cn/" target="_blank" rel="external">easyAR</a>， 国外的就是<a href="https://developer.vuforia.com/" target="_blank" rel="external">高通的AR</a>实现方案.<br>iOS11的ARkit框架,要想使用ARkit,需要A9处理器, 同时是iOS 11系统, 目前支持的iPhone设备有<br> iPhone SE,  iphone 6s, iphone 6sp, iphone 7,  iphone 7p</p>
-<h3 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a>具体操作</h3><p>我使用的是国内的easyAR，注册账号，下载原生的SDK包, 可能mac上会解压不了, 这个时候就需要使用终端命令行进行解压, 这个我是没有操作成功, 后续再试试, 最快的办法是叫安卓的同事帮忙解压. 完事之后, 打开, 把原来创建项目生成的bundleID 替换在easyAR注册的时候填写的bundleID, 在AppDelegate中填写注册是的key, command + R, demo 里面的都是些简单的使用AR, 如果想要开发比较复杂的模型的需要使用unity. 第一篇博客, 写的不是很详细, 但都是重点, 后续会补充的.</p>
+<h3 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a>具体操作</h3><p>我使用的是国内的easyAR，注册账号，下载原生的SDK包, 可能mac上会解压不了, 这个时候就需要使用终端命令行进行解压, 这个我是没有操作成功, 后续再试试, 最快的办法是叫安卓的同事帮忙解压. 完事之后, 打开, 把原来创建项目生成的bundleID 替换在easyAR注册的时候填写的bundleID, 在AppDelegate中填写注册是的key, command + R, demo 里面的都是些简单的使用AR, 如果想要开发比较复杂的模型的需要使用unity.</p>
             
         </div>
     </div>
@@ -232,7 +232,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/09/11/block的循环引用/"  data-tooltip="block的循环引用">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -314,7 +314,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/09/11/block的循环引用/"  data-tooltip="block的循环引用">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -496,6 +496,25 @@
                     <hr>
                 </div>
                 
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://xiatiejun.com/2017/09/11/block的循环引用/">
+                            <h3 class="media-heading">block的循环引用</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2017年9月11日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>block循环引用的解决办法<br></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
             </div>
         </div>
         <div class="modal-footer">
@@ -503,7 +522,7 @@
                 data-message-zero="没有找到文章"
                 data-message-one="找到 1 篇文章"
                 data-message-other="找到 {n} 篇文章">
-                找到 2 篇文章
+                找到 3 篇文章
             </p>
         </div>
     </div>

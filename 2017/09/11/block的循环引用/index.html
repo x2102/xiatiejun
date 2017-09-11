@@ -6,22 +6,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="tiaowang Blog">
-    <title>Welcome to Tiejun Blog - tiaowang Blog</title>
+    <title>block的循环引用 - tiaowang Blog</title>
     <meta name="author" content="tiaowang">
     
     
     
-    <meta name="description" content="今天终于有了个人网站和自己的博客">
+    <meta name="description" content="block循环引用的解决办法">
+<meta name="keywords" content="iOS,OC">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="Welcome to Tiejun Blog">
-<meta property="og:url" content="http://xiatiejun.com/2017/09/11/firstBlog/index.html">
+<meta property="og:title" content="block的循环引用">
+<meta property="og:url" content="http://xiatiejun.com/2017/09/11/block的循环引用/index.html">
 <meta property="og:site_name" content="tiaowang Blog">
-<meta property="og:description" content="今天终于有了个人网站和自己的博客">
+<meta property="og:description" content="block循环引用的解决办法">
 <meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2017-09-11T03:11:43.000Z">
+<meta property="og:updated_time" content="2017-09-11T04:00:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Welcome to Tiejun Blog">
-<meta name="twitter:description" content="今天终于有了个人网站和自己的博客">
+<meta name="twitter:title" content="block的循环引用">
+<meta name="twitter:description" content="block循环引用的解决办法">
     
     
         
@@ -200,12 +201,12 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            Welcome to Tiejun Blog
+            block的循环引用
         </h1>
     
     
         <div class="post-meta">
-    <time itemprop="datePublished" datetime="2017-09-11T11:06:28+08:00">
+    <time itemprop="datePublished" datetime="2017-09-11T11:18:53+08:00">
 	
 		    9月 11, 2017
     	
@@ -219,13 +220,29 @@
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
             <!-- excerpt --></p>
-<p>这几天突然的一个想法, 就是建立自己的博客. 以前工作中遇到的一些问题, 虽然都解决了, 但是现在在记忆中已经很淡了. 以后遇到了,知道解决过, 但是过程还是要去找, 感觉像是浪费了时间. 现在有了自己的博客, 可以把工作的遇到的一些问题, 包括学习到的一些新的知识记录下来.可以做一个很好的总结,加深印象, 希望以后可以帮助从事iOS行业的开发者.自己都是从一个一个坑里走出来的, 能体会初学的那种感受.<br>最后再想想用自己的名字做域名的,想想都觉得开心,当然也是为了zb.</p>
-<h4 id="建立博客的简单过程"><a href="#建立博客的简单过程" class="headerlink" title="建立博客的简单过程"></a>建立博客的简单过程</h4><p>我是在mac环境下 使用的是hexo + GitHub page 搭建的, 大概的步骤:<br>1, 安装node.js<br>2, 安装git(xcode自带git, 可以省略)<br>3, 初始化hexo<br>4, 注册github 账号<br>5, 建立自己的代码仓库<br>6  部署到GitHub<br>7, 购买属于自己的域名<br>8, 在购买域名的网站上添加解析(note: 如果是在阿里的<a href="https://wanwang.aliyun.com" target="_blank" rel="external">万网</a>买的话, 购买成功后会有很多的解析过的域名的列表,这些没有什么用, 如果不删除的话, 后面添加GitHub 的上的仓库地址的话, 就会添加不了)<br>9, 在搭建好的hexo的环境下的source的_post文件添加一个CNAME文件, 上面写上购买的域名,不然就关联不了自己的GitHub的网页</p>
-<p><a href="http://www.jianshu.com/p/05289a4bc8b2" target="_blank" rel="external">详细步骤</a></p>
+<h4 id="block为什么会存在循环引用"><a href="#block为什么会存在循环引用" class="headerlink" title="block为什么会存在循环引用"></a>block为什么会存在循环引用</h4><p>用一句话概括: 当一个对象持有block, 在这个对象的block中访问这个对象, 就会存在循环引用.具体来看一下</p>
+<p>例如 有一个persen类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">@interface Person : NSObject</div><div class="line"></div><div class="line">@property (copy, nonatomic) NSString *name;</div><div class="line">@property (copy, nonatomic) void (^testBlcok)();</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@implementation Person</div><div class="line"></div><div class="line">- (void)setName:(NSString *)name &#123;</div><div class="line">    _name = name;</div><div class="line">    NSAssert(self.testBlcok, @&quot;testBlcok no can nil&quot;);</div><div class="line">    self.testBlcok();</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Person *person = [[Person alloc] init];</div><div class="line">[person setTestBlcok:^&#123;</div><div class="line">     NSLog(@&quot;%@&quot;, person.name);</div><div class="line">&#125;];</div><div class="line">person.name = @&quot;小胡&quot;;</div><div class="line"></div><div class="line">//会存在循环引用</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">dispatch_async(dispatch_get_main_queue(), ^&#123;</div><div class="line">    NSLog(@&quot;%@&quot;, self.person);</div><div class="line">&#125;);</div><div class="line">//使用系统的block是不会存在循环引用的</div></pre></td></tr></table></figure>
+<h3 id="weakSelf-和-strongSelf"><a href="#weakSelf-和-strongSelf" class="headerlink" title="weakSelf 和 strongSelf"></a>weakSelf 和 strongSelf</h3><p><strong><em> weakSelf </em></strong></p>
+<p>当block中存在循环引用的时候,我们需要用一个弱引用指向一个强引用</p>
+<p>__weak typeof(Person) weakSelf = self;</p>
+<p>使用weakSelf 去访问属性的时候就不会存在循环引用了</p>
+<p><strong><em> strongSelf </em></strong></p>
+<p>什么时候使用strongSelf</p>
+<p>当在一个block中定义了weakSelf, 多次使用self, 尤其是在线程之间的切换的时候就需要使用, 具体原因: 当一个对象持有一个block的时候默认会对里面的对象进行retain操作,<br>定义weakSelf就不会进行retain操作</p>
             
         </div>
     </div>
     <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">标签</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/OC/">OC</a> <a class="tag tag--primary tag--small t-link" href="/tags/iOS/">iOS</a>
+
+            </div>
         
         
             <div class="post-actions-wrap">
@@ -233,7 +250,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/09/11/AR初探/"  data-tooltip="AR初探">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -241,7 +258,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/09/11/AR初探/" data-tooltip="AR初探">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -259,7 +276,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://xiatiejun.com/2017/09/11/firstBlog/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://xiatiejun.com/2017/09/11/block的循环引用/">
                     <i class="fa fa-facebook-official"></i>
                 </a>
             </li>
@@ -267,7 +284,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://xiatiejun.com/2017/09/11/firstBlog/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://xiatiejun.com/2017/09/11/block的循环引用/">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
@@ -275,7 +292,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://xiatiejun.com/2017/09/11/firstBlog/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://xiatiejun.com/2017/09/11/block的循环引用/">
                     <i class="fa fa-google-plus"></i>
                 </a>
             </li>
@@ -315,7 +332,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/09/11/AR初探/"  data-tooltip="AR初探">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -323,7 +340,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/09/11/AR初探/" data-tooltip="AR初探">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -341,7 +358,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://xiatiejun.com/2017/09/11/firstBlog/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://xiatiejun.com/2017/09/11/block的循环引用/">
                     <i class="fa fa-facebook-official"></i>
                 </a>
             </li>
@@ -349,7 +366,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://xiatiejun.com/2017/09/11/firstBlog/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://xiatiejun.com/2017/09/11/block的循环引用/">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
@@ -357,7 +374,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://xiatiejun.com/2017/09/11/firstBlog/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://xiatiejun.com/2017/09/11/block的循环引用/">
                     <i class="fa fa-google-plus"></i>
                 </a>
             </li>
@@ -382,7 +399,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://xiatiejun.com/2017/09/11/firstBlog/">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://xiatiejun.com/2017/09/11/block的循环引用/">
                     <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
                 </a>
             </li>
@@ -390,7 +407,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://xiatiejun.com/2017/09/11/firstBlog/">
+                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://xiatiejun.com/2017/09/11/block的循环引用/">
                     <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
                 </a>
             </li>
@@ -398,7 +415,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://xiatiejun.com/2017/09/11/firstBlog/">
+                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://xiatiejun.com/2017/09/11/block的循环引用/">
                     <i class="fa fa-google-plus"></i><span>分享到 Google+</span>
                 </a>
             </li>
