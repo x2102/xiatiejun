@@ -6,18 +6,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="tiaowang Blog">
-    <title>归档: 2017 - tiaowang Blog</title>
+    <title>AR初探 - tiaowang Blog</title>
     <meta name="author" content="tiaowang">
     
     
     
-    <meta property="og:type" content="blog">
-<meta property="og:title" content="tiaowang Blog">
-<meta property="og:url" content="http://xiatiejun.com/archives/2017/index.html">
+    <meta name="description" content="在iOS上实现AR的几种方法">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="AR初探">
+<meta property="og:url" content="http://xiatiejun.com/2016/11/11/AR初探/index.html">
 <meta property="og:site_name" content="tiaowang Blog">
+<meta property="og:description" content="在iOS上实现AR的几种方法">
 <meta property="og:locale" content="zh-cn">
+<meta property="og:updated_time" content="2017-09-11T06:22:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tiaowang Blog">
+<meta name="twitter:title" content="AR初探">
+<meta name="twitter:description" content="在iOS上实现AR的几种方法">
     
     
         
@@ -46,7 +50,7 @@
         
     
 
-<header id="header" data-behavior="1">
+<header id="header" data-behavior="4">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <div class="header-title">
         <a class="header-title-link" href="/ ">tiaowang Blog</a>
@@ -70,7 +74,7 @@
         
     
 
-<nav id="sidebar" data-behavior="1">
+<nav id="sidebar" data-behavior="4">
     <div class="sidebar-container">
         
             <div class="sidebar-profile">
@@ -185,133 +189,114 @@
 </nav>
 
             
-            <div id="main" data-behavior="1"
+            <div id="main" data-behavior="4"
                  class="
                         hasCoverMetaIn
                         ">
                 
-    <section class="postShorten-group main-content-wrap">
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
     
     
-    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/09/11/block的循环引用/">
-                            block的循环引用
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-09-11T11:18:53+08:00">
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            AR初探
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time itemprop="datePublished" datetime="2016-11-11T11:16:32+08:00">
 	
-		    9月 11, 2017
+		    11月 11, 2016
     	
     </time>
     
 </div>
 
-            </div>
-            
-                <div class="postShorten-excerpt" itemprop="articleBody">
-                    <p>block循环引用的解决办法<br>
-                    
-                        <a href="/2017/09/11/block的循环引用/" class="postShorten-excerpt_link link">
-                            阅读全文
-                        </a>
-                        
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/09/11/AR初探/">
-                            AR初探
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-09-11T11:16:32+08:00">
-	
-		    9月 11, 2017
-    	
-    </time>
     
 </div>
-
-            </div>
-            
-                <div class="postShorten-excerpt" itemprop="articleBody">
-                    <p>在iOS上实现AR的几种方法<br>
-                    
-                        <a href="/2017/09/11/AR初探/" class="postShorten-excerpt_link link">
-                            阅读全文
-                        </a>
-                        
-                    
-                </div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <!-- excerpt --></p>
+<h4 id="在iOS上实现AR的几种方法"><a href="#在iOS上实现AR的几种方法" class="headerlink" title="在iOS上实现AR的几种方法"></a>在iOS上实现AR的几种方法</h4><p>使用第3方：国内是 <a href="http://www.easyar.cn/" target="_blank" rel="external">easyAR</a>， 国外的就是<a href="https://developer.vuforia.com/" target="_blank" rel="external">高通的AR</a>实现方案.<br>iOS11的ARkit框架,要想使用ARkit,需要A9处理器, 同时是iOS 11系统, 目前支持的iPhone设备有 <strong><em>iPhone SE</em></strong>,  <strong><em>iphone 6s</em></strong>, <strong><em>iphone 6sp</em></strong>, <strong><em>iphone 7</em></strong>,  <strong><em>iphone 7p</em></strong></p>
+<h4 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a>具体操作</h4><p>我使用的是国内的easyAR,注册账号.下载原生的SDK包,可能mac上会解压不了,这个时候就需要使用终端命令行进行解压,这个我是没有操作成功,后续再试试,最快的办法是叫安卓的同事帮忙解压. 完事之后, 打开, 把原来创建项目生成的bundleID 替换在easyAR注册的时候填写的bundleID, 在AppDelegate中填写注册是的key, command + R, demo 里面的都是些简单的使用AR, 如果想要开发比较复杂的模型的需要使用unity.</p>
             
         </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
         
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/12/block的循环引用/"  data-tooltip="block的循环引用">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/09/11/firstBlog/" data-tooltip="Welcome to Tiejun Blog">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        
             
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/09/11/firstBlog/">
-                            Welcome to Tiejun Blog
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-09-11T11:06:28+08:00">
-	
-		    9月 11, 2017
-    	
-    </time>
-    
-</div>
-
-            </div>
             
-                <div class="postShorten-excerpt" itemprop="articleBody">
-                    <p>今天终于有了个人网站和自己的博客<br>
-                    
-                        <a href="/2017/09/11/firstBlog/" class="postShorten-excerpt_link link">
-                            阅读全文
-                        </a>
-                        
-                    
-                </div>
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://xiatiejun.com/2016/11/11/AR初探/">
+                    <i class="fa fa-facebook-official"></i>
+                </a>
+            </li>
+        
             
-        </div>
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://xiatiejun.com/2016/11/11/AR初探/">
+                    <i class="fa fa-twitter"></i>
+                </a>
+            </li>
         
-    </article>
-    
-    <div class="pagination-bar">
-    <ul class="pagination">
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://xiatiejun.com/2016/11/11/AR初探/">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+            </li>
         
         
-        <li class="pagination-number">第 1 页 共 1 页</li>
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
     </ul>
 </div>
 
-</section>
+
+        
+        
+            
+        
+    </div>
+</article>
 
 
 
@@ -322,6 +307,104 @@
 </footer>
 
             </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/12/block的循环引用/"  data-tooltip="block的循环引用">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/09/11/firstBlog/" data-tooltip="Welcome to Tiejun Blog">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://xiatiejun.com/2016/11/11/AR初探/">
+                    <i class="fa fa-facebook-official"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://xiatiejun.com/2016/11/11/AR初探/">
+                    <i class="fa fa-twitter"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://xiatiejun.com/2016/11/11/AR初探/">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+            </li>
+        
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <i id="btn-close-shareoptions" class="fa fa-close"></i>
+    <ul class="share-options">
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://xiatiejun.com/2016/11/11/AR初探/">
+                    <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://xiatiejun.com/2016/11/11/AR初探/">
+                    <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://xiatiejun.com/2016/11/11/AR初探/">
+                    <i class="fa fa-google-plus"></i><span>分享到 Google+</span>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+
             
         </div>
         
@@ -378,13 +461,13 @@
                 <div class="media">
                     
                     <div class="media-body">
-                        <a class="link-unstyled" href="http://xiatiejun.com/2017/09/11/firstBlog/">
+                        <a class="link-unstyled" href="http://xiatiejun.com/2016/09/11/firstBlog/">
                             <h3 class="media-heading">Welcome to Tiejun Blog</h3>
                         </a>
                         <span class="media-meta">
                             <span class="media-date text-small">
                                 
-                                    2017年9月11日
+                                    2016年9月11日
                                 
                             </span>
                         </span>
@@ -397,13 +480,13 @@
                 <div class="media">
                     
                     <div class="media-body">
-                        <a class="link-unstyled" href="http://xiatiejun.com/2017/09/11/AR初探/">
+                        <a class="link-unstyled" href="http://xiatiejun.com/2016/11/11/AR初探/">
                             <h3 class="media-heading">AR初探</h3>
                         </a>
                         <span class="media-meta">
                             <span class="media-date text-small">
                                 
-                                    2017年9月11日
+                                    2016年11月11日
                                 
                             </span>
                         </span>
@@ -416,13 +499,13 @@
                 <div class="media">
                     
                     <div class="media-body">
-                        <a class="link-unstyled" href="http://xiatiejun.com/2017/09/11/block的循环引用/">
+                        <a class="link-unstyled" href="http://xiatiejun.com/2016/11/12/block的循环引用/">
                             <h3 class="media-heading">block的循环引用</h3>
                         </a>
                         <span class="media-meta">
                             <span class="media-date text-small">
                                 
-                                    2017年9月11日
+                                    2016年11月12日
                                 
                             </span>
                         </span>
@@ -450,6 +533,8 @@
         <!--SCRIPTS-->
 <script src="/assets/js/script-ivwiy10zeb8fifc4swnhkwneuk64y53w2scmdmtp8thi9cqfxh31aowtroaz.min.js"></script>
 <!--SCRIPTS END-->
+
+    
 
 
     </body>
