@@ -1,13 +1,13 @@
 
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="en">
     
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="tiaowang Blog">
-    <title>WKWebView注意点 - tiaowang Blog</title>
-    <meta name="author" content="tiaowang">
+    <meta name="generator" content="tiaoWang Blog">
+    <title>WKWebView注意点 - tiaoWang Blog</title>
+    <meta name="author" content="tiaoWang">
     
     
     
@@ -16,10 +16,10 @@
 <meta property="og:type" content="blog">
 <meta property="og:title" content="WKWebView注意点">
 <meta property="og:url" content="http://xiatiejun.com/2016/11/13/WKWebView的注意点/index.html">
-<meta property="og:site_name" content="tiaowang Blog">
+<meta property="og:site_name" content="tiaoWang Blog">
 <meta property="og:description" content="在使用WKWebView的过程中遇到的问题">
-<meta property="og:locale" content="zh-cn">
-<meta property="og:updated_time" content="2017-09-12T00:57:29.000Z">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-09-12T01:01:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WKWebView注意点">
 <meta name="twitter:description" content="在使用WKWebView的过程中遇到的问题">
@@ -54,7 +54,7 @@
 <header id="header" data-behavior="4">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <div class="header-title">
-        <a class="header-title-link" href="/ ">tiaowang Blog</a>
+        <a class="header-title-link" href="/ ">tiaoWang Blog</a>
     </div>
     
         
@@ -62,7 +62,7 @@
                 href="#about">
         
         
-            <img class="header-picture" src="/assets/images/me.png" alt="作者的图片"/>
+            <img class="header-picture" src="/assets/images/me.png" alt="Author&#39;s picture"/>
         
         </a>
     
@@ -80,9 +80,9 @@
         
             <div class="sidebar-profile">
                 <a href="/#about">
-                    <img class="sidebar-profile-picture" src="/assets/images/me.png" alt="作者的图片"/>
+                    <img class="sidebar-profile-picture" src="/assets/images/me.png" alt="Author&#39;s picture"/>
                 </a>
-                <h4 class="sidebar-profile-name">tiaowang</h4>
+                <h4 class="sidebar-profile-name">tiaoWang</h4>
                 
                     <h5 class="sidebar-profile-bio"><p>不要停止你的脚步</p>
 </h5>
@@ -100,7 +100,7 @@
                         >
                     
                         <i class="sidebar-button-icon fa fa-lg fa-home"></i>
-                        <span class="sidebar-button-desc">首页</span>
+                        <span class="sidebar-button-desc">Home</span>
                     </a>
             </li>
             
@@ -112,7 +112,7 @@
                         >
                     
                         <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
-                        <span class="sidebar-button-desc">分类</span>
+                        <span class="sidebar-button-desc">Categories</span>
                     </a>
             </li>
             
@@ -124,7 +124,7 @@
                         >
                     
                         <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
-                        <span class="sidebar-button-desc">标签</span>
+                        <span class="sidebar-button-desc">Tags</span>
                     </a>
             </li>
             
@@ -136,7 +136,7 @@
                         >
                     
                         <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
-                        <span class="sidebar-button-desc">归档</span>
+                        <span class="sidebar-button-desc">Archives</span>
                     </a>
             </li>
             
@@ -148,7 +148,7 @@
                         >
                     
                         <i class="sidebar-button-icon fa fa-lg fa-search"></i>
-                        <span class="sidebar-button-desc">搜索</span>
+                        <span class="sidebar-button-desc">Search</span>
                     </a>
             </li>
             
@@ -160,7 +160,7 @@
                         >
                     
                         <i class="sidebar-button-icon fa fa-lg fa-question"></i>
-                        <span class="sidebar-button-desc">关于</span>
+                        <span class="sidebar-button-desc">About</span>
                     </a>
             </li>
             
@@ -208,7 +208,7 @@
         <div class="post-meta">
     <time itemprop="datePublished" datetime="2016-11-13T12:18:53+08:00">
 	
-		    11月 13, 2016
+		    Nov 13, 2016
     	
     </time>
     
@@ -220,14 +220,14 @@
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
             <!-- excerpt --></p>
-<p>WKWebView 在iOS8 的时候出来的, 和UIWebView功能基本上差不多, 但是使用的性能却比UIWebView要高很多. 主要突出在内存方面, 加载同一个网页, WKWebView的内存会比UIWebView要少很多, 而且还提供了加载进度, 我们可以使用这个属性, 准确的了解加载进度, 让用户知道, 提高用户体验. 当我以为可以替代UIWebView的时候,却发现在OC和H5交互的过程中, 始终存在一个问题就是cookie在加载过程中会丢失. 找了很多的资料, 但是还是没有能够解决. 这个iOS系统存在的一个bug.希望以后可以修复这个问题, 就可以从此不再使用UIWebView了.</p>
+<p>WKWebView 在iOS8 的时候出来的, 和UIWebView功能基本上差不多, 但是使用的性能却比UIWebView要高很多. 主要突出在内存方面, 加载同一个网页, WKWebView的内存会比UIWebView要少很多, 而且还提供了加载进度, 我们可以使用这个属性, 准确的了解加载进度, 让用户知道, 提高用户体验. 当我以为可以替代UIWebView的时候,却发现在OC和H5交互的过程中, 始终存在一个问题就是cookie在加载网页的过程中会丢失. 找了很多的资料, 但是还是没有能够解决. 这个可能iOS系统存在的一个bug.希望以后苹果可以修复这个问题, 就可以从此不再使用UIWebView了.</p>
             
         </div>
     </div>
     <div id="post-footer" class="post-footer main-content-wrap">
         
             <div class="post-footer-tags">
-                <span class="text-color-light text-small">标签</span><br/>
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
                 
     <a class="tag tag--primary tag--small t-link" href="/tags/OC/">OC</a> <a class="tag tag--primary tag--small t-link" href="/tags/iOS/">iOS</a>
 
@@ -239,17 +239,17 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/09/12/cornerstonet提示已损坏打不开/"  data-tooltip="Cornerstone提示已损坏打不开">
                 
                     <i class="fa fa-angle-left"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
                 </a>
             </li>
             <li class="post-action">
                 
                     <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/12/block的循环引用/" data-tooltip="block的循环引用">
                 
-                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right"></i>
                 </a>
             </li>
@@ -309,7 +309,7 @@
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
-        Copyrights &copy; 2017 tiaowang. All Rights Reserved.
+        Copyrights &copy; 2017 tiaoWang. All Rights Reserved.
     </span>
 </footer>
 
@@ -321,17 +321,17 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/09/12/cornerstonet提示已损坏打不开/"  data-tooltip="Cornerstone提示已损坏打不开">
                 
                     <i class="fa fa-angle-left"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
                 </a>
             </li>
             <li class="post-action">
                 
                     <a class="post-action-btn btn btn--default tooltip--top" href="/2016/11/12/block的循环引用/" data-tooltip="block的循环引用">
                 
-                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right"></i>
                 </a>
             </li>
@@ -389,7 +389,7 @@
             
             <li class="share-option">
                 <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://xiatiejun.com/2016/11/13/WKWebView的注意点/">
-                    <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
+                    <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
                 </a>
             </li>
         
@@ -397,7 +397,7 @@
             
             <li class="share-option">
                 <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://xiatiejun.com/2016/11/13/WKWebView的注意点/">
-                    <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
+                    <i class="fa fa-twitter"></i><span>Share on Twitter</span>
                 </a>
             </li>
         
@@ -405,7 +405,7 @@
             
             <li class="share-option">
                 <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://xiatiejun.com/2016/11/13/WKWebView的注意点/">
-                    <i class="fa fa-google-plus"></i><span>分享到 Google+</span>
+                    <i class="fa fa-google-plus"></i><span>Share on Google+</span>
                 </a>
             </li>
         
@@ -427,9 +427,9 @@
             <i class="fa fa-remove"></i>
         </div>
         
-            <img id="about-card-picture" src="/assets/images/me.png" alt="作者的图片"/>
+            <img id="about-card-picture" src="/assets/images/me.png" alt="Author&#39;s picture"/>
         
-            <h4 id="about-card-name">tiaowang</h4>
+            <h4 id="about-card-name">tiaoWang</h4>
         
             <div id="about-card-bio"><p>不要停止你的脚步</p>
 </div>
@@ -462,7 +462,7 @@
             </form>
         </div>
         <div class="modal-body">
-            <div class="no-result text-color-light text-center">没有找到文章</div>
+            <div class="no-result text-color-light text-center">no post found</div>
             <div class="results">
                 
                 <div class="media">
@@ -474,7 +474,7 @@
                         <span class="media-meta">
                             <span class="media-date text-small">
                                 
-                                    2016年9月11日
+                                    Sep 11, 2016
                                 
                             </span>
                         </span>
@@ -493,7 +493,7 @@
                         <span class="media-meta">
                             <span class="media-date text-small">
                                 
-                                    2016年11月11日
+                                    Nov 11, 2016
                                 
                             </span>
                         </span>
@@ -512,7 +512,7 @@
                         <span class="media-meta">
                             <span class="media-date text-small">
                                 
-                                    2016年11月12日
+                                    Nov 12, 2016
                                 
                             </span>
                         </span>
@@ -531,7 +531,7 @@
                         <span class="media-meta">
                             <span class="media-date text-small">
                                 
-                                    2016年11月13日
+                                    Nov 13, 2016
                                 
                             </span>
                         </span>
@@ -541,14 +541,71 @@
                     <hr>
                 </div>
                 
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://xiatiejun.com/2017/09/12/cornerstonet提示已损坏打不开/">
+                            <h3 class="media-heading">Cornerstone提示已损坏打不开</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    Sep 12, 2017
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>Mac升级到macOS Sierra 10.12后,Conerstone破解版安装后提示“已损坏”问题<br></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://xiatiejun.com/2017/09/12/萨克斯学习/">
+                            <h3 class="media-heading">萨克斯学习</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    Sep 12, 2017
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://xiatiejun.com/2017/09/12/健身体会/">
+                            <h3 class="media-heading">健身体会</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    Sep 12, 2017
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"><p>半年前我开始了健身的生活, 当时健身的目的是因为想减些脂肪, 原来以为去健身房<br></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
             </div>
         </div>
         <div class="modal-footer">
             <p class="results-count text-medium"
-                data-message-zero="没有找到文章"
-                data-message-one="找到 1 篇文章"
-                data-message-other="找到 {n} 篇文章">
-                找到 4 篇文章
+                data-message-zero="no post found"
+                data-message-one="1 post found"
+                data-message-other="{n} posts found">
+                7 posts found
             </p>
         </div>
     </div>
