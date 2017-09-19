@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="tiaoWang Blog">
 <meta property="og:description" content="在使用WKWebView的过程中遇到的问题">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2017-09-12T01:01:07.000Z">
+<meta property="og:updated_time" content="2017-09-19T01:13:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WKWebView注意点">
 <meta name="twitter:description" content="在使用WKWebView的过程中遇到的问题">
@@ -220,7 +220,8 @@
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
             <!-- excerpt --></p>
-<p>WKWebView 在iOS8 的时候出来的, 和UIWebView功能基本上差不多, 但是使用的性能却比UIWebView要高很多. 主要突出在内存方面, 加载同一个网页, WKWebView的内存会比UIWebView要少很多, 而且还提供了加载进度, 我们可以使用这个属性, 准确的了解加载进度, 让用户知道, 提高用户体验. 当我以为可以替代UIWebView的时候,却发现在OC和H5交互的过程中, 始终存在一个问题就是cookie在加载网页的过程中会丢失. 找了很多的资料, 但是还是没有能够解决. 这个可能iOS系统存在的一个bug.希望以后苹果可以修复这个问题, 就可以从此不再使用UIWebView了.</p>
+<p>WKWebView 在iOS8 的时候出来的, 和UIWebView功能基本上差不多, 但是使用的性能却比UIWebView要高很多. 主要突出在内存方面, 加载同一个网页, WKWebView的内存会比UIWebView要少很多, 而且还提供了加载进度, 我们可以使用这个属性, 准确的了解加载进度, 让用户知道, 提高用户体验. 当我以为可以替代UIWebView的时候,却发现在OC和H5交互的过程中, 始终存在一个问题就是cookie在加载网页的过程中会丢失. 找了很多的资料, 但是还是没有能够解决. 这个可能iOS系统存在的一个bug. 也可能是apple 有什么考虑吧. 希望以后苹果可以修复这个问题, 就可以不再使用UIWebView了.</p>
+<p>怎么解决这个问题呢? 还是使用UIWebView吧.</p>
             
         </div>
     </div>
